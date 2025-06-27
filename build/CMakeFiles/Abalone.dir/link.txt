@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Abalone.dir/main.cpp.o -o Abalone  -lsfml-graphics -lsfml-window -lsfml-system -lX11 
