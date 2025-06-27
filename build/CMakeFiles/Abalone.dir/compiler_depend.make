@@ -185,8 +185,31 @@ CMakeFiles/Abalone.dir/main.cpp.o: ../main.cpp \
   /usr/include/c++/11/bits/stl_uninitialized.h \
   /usr/include/c++/11/bits/stl_vector.h \
   /usr/include/c++/11/bits/stl_bvector.h \
-  /usr/include/c++/11/bits/vector.tcc
+  /usr/include/c++/11/bits/vector.tcc \
+  /usr/include/c++/11/map \
+  /usr/include/c++/11/bits/stl_tree.h \
+  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/bits/node_handle.h \
+  /usr/include/c++/11/bits/stl_map.h \
+  /usr/include/c++/11/tuple \
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/bits/uses_allocator.h \
+  /usr/include/c++/11/bits/invoke.h \
+  /usr/include/c++/11/bits/stl_multimap.h \
+  /usr/include/c++/11/bits/erase_if.h
 
+
+/usr/include/c++/11/bits/erase_if.h:
+
+/usr/include/c++/11/bits/uses_allocator.h:
+
+/usr/include/c++/11/array:
+
+/usr/include/c++/11/bits/stl_relops.h:
+
+/usr/include/c++/11/bits/stl_map.h:
 
 /usr/include/c++/11/bits/vector.tcc:
 
@@ -240,6 +263,8 @@ CMakeFiles/Abalone.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
 
+/usr/include/c++/11/utility:
+
 /usr/include/errno.h:
 
 /usr/include/c++/11/cerrno:
@@ -257,6 +282,8 @@ CMakeFiles/Abalone.dir/main.cpp.o: ../main.cpp \
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/c++/11/ext/aligned_buffer.h:
 
 /usr/include/endian.h:
 
@@ -308,6 +335,8 @@ CMakeFiles/Abalone.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
+/usr/include/c++/11/map:
+
 /usr/include/c++/11/bits/range_access.h:
 
 /usr/include/c++/11/cstdlib:
@@ -354,6 +383,8 @@ CMakeFiles/Abalone.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
+/usr/include/c++/11/bits/node_handle.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
@@ -365,6 +396,8 @@ CMakeFiles/Abalone.dir/main.cpp.o: ../main.cpp \
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+
+/usr/include/c++/11/bits/stl_multimap.h:
 
 /usr/include/features.h:
 
@@ -420,6 +453,8 @@ CMakeFiles/Abalone.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/c++/11/bits/postypes.h:
 
+/usr/include/c++/11/bits/invoke.h:
+
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
 /usr/include/c++/11/exception:
@@ -433,6 +468,10 @@ CMakeFiles/Abalone.dir/main.cpp.o: ../main.cpp \
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
+
+/usr/include/c++/11/tuple:
+
+/usr/include/c++/11/bits/stl_tree.h:
 
 /usr/include/c++/11/type_traits:
 
