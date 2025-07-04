@@ -183,7 +183,7 @@ class Board{
                 else if(abs(row1 - row2) == 1 && col1 - col2 == 0){
                     direction = 1;
                 }
-                else if(abs(row1 - row2) == 1 && abs(col1 - col2) == 1 && row1 - row2 == col1 - col2){
+                else if(abs(row1 - row2) == 1 && row1 - row2 == col1 - col2){
                     direction = 2;
                 }
                 // pieces aren't connected
@@ -194,11 +194,11 @@ class Board{
                 if(dir % 3 == direction){
                     // piece 2 is the front piece
                     if(row1 + rowMove == row2 && col1 + colMove == col2){
-                        return push(colour, rowMove, colMove, row1, col1, row2, col2);
+                        return push(colour, rowMove, colMove, row2, col2, 2);
                     }
                     // piece 1 is the front piece
                     else{
-                        return push(colour, rowMove, colMove, row2, col2, row1, col1);
+                        return push(colour, rowMove, colMove, row1, col1, 2);
                     }
                 }
                 // direction of pieces doesn't align with direction of movement
@@ -216,6 +216,80 @@ class Board{
                 }
 
             }
+            // if 3 piece move
+            if(row3 != -1 && col3 != -1){
+                // check pieces are in a line
+                int direction = 0;
+                if(row1 - row2 == 0 && row1 - row3 == 0){
+                    direction = 0;
+                    if(!(abs(col1 - col2) == 1 || abs(col1 - col2) == 2)){
+                        return 1;
+                    }
+                    if(!(abs(col3 - col2) == 1 || abs(col3 - col2) == 2)){
+                        return 1;
+                    }
+                    if(!(abs(col3 - col1) == 1 || abs(col3 - col1) == 2)){
+                        return 1;
+                    }
+                }
+                else if(col1 - col2 == 0 && col1 - col3 == 0){
+                    direction = 1;
+                    if(!(abs(row1 - row2) == 1 || abs(row1 - row2) == 2)){
+                        return 1;
+                    }
+                    if(!(abs(row3 - row2) == 1 || abs(row3 - row2) == 2)){
+                        return 1;
+                    }
+                    if(!(abs(row3 - row1) == 1 || abs(row3 - row1) == 2)){
+                        return 1;
+                    }
+                }
+                else if(row1 - row2 == col1 - col2 && row1 - row3 == col1 - col3){
+                    direction = 2;
+                    if(!(abs(row1 - row2) == 1 || abs(row1 - row2) == 2)){
+                        return 1;
+                    }
+                    if(!(abs(row3 - row2) == 1 || abs(row3 - row2) == 2)){
+                        return 1;
+                    }
+                    if(!(abs(row3 - row1) == 1 || abs(row3 - row1) == 2)){
+                        return 1;
+                    }
+                }
+                // pieces aren't connected
+                else{
+                    return 1;
+                }
+                // if direction of pieces aligns with direction of movement
+                if(dir % 3 == direction){
+                    if((row3 + rowMove != row1 && row3 + rowMove != row2) || (col3 + colMove != col1 && col3 + colMove != col2)){
+                        return push(colour, rowMove, colMove, row3, col3, 3);
+                    }
+                    if((row2 + rowMove != row1 && row2 + rowMove != row3) || (col2 + colMove != col1 && col2 + colMove != col3)){
+                        return push(colour, rowMove, colMove, row2, col2, 3);
+                    }
+                    if((row1 + rowMove != row3 && row1 + rowMove != row2) || (col1 + colMove != col3 && col1 + colMove != col2)){
+                        return push(colour, rowMove, colMove, row1, col1, 3);
+                    }
+                }
+                // direction of pieces doesn't align with direction of movement
+                else{
+                    // check space is free to move
+                    if(board.at(row1 + rowMove).at(col1 + colMove).value == 0
+                        && board.at(row2 + rowMove).at(col2 + colMove).value == 0
+                        && board.at(row3 + rowMove).at(col3 + colMove).value == 0){
+                        board.at(row1 + rowMove).at(col1 + colMove).value = colour;
+                        board.at(row1).at(col1).value = 0;
+                        board.at(row2 + rowMove).at(col2 + colMove).value = colour;
+                        board.at(row2).at(col2).value = 0;
+                        board.at(row3 + rowMove).at(col3 + colMove).value = colour;
+                        board.at(row3).at(col3).value = 0;
+                        return 0;
+                    }
+                    return 1;
+                }
+
+            }
 
 
 
@@ -223,28 +297,57 @@ class Board{
         }
 
 
-        int push(int colour, int rowMove, int colMove, int row1, int col1, int row2, int col2){
+        int push(int colour, int rowMove, int colMove, int row, int col, int numPieces){
             int antiColour = colour == 1 ? 2 : 1;
     
             // if nothing in front of the pieces
-            if(board.at(row2 + rowMove).at(col2 + colMove).value == 0){
-                board.at(row1).at(col1).value = 0;
-                board.at(row2 + rowMove).at(col2 + colMove).value = colour;
+            if(board.at(row + rowMove).at(col + colMove).value == 0){
+                board.at(row - rowMove * (numPieces - 1)).at(col - colMove * (numPieces - 1)).value = 0;
+                board.at(row + rowMove).at(col + colMove).value = colour;
                 return 0;
             }
             // if opposing piece in front of pieces
-            if(board.at(row2 + rowMove).at(col2 + colMove).value == antiColour){
-                if(board.at(row2 + rowMove + rowMove).at(col2 + colMove + colMove).value == 0){
-                    board.at(row2 + rowMove + rowMove).at(col2 + colMove + colMove).value = antiColour;
-                    board.at(row1).at(col1).value = 0;
-                    board.at(row2 + rowMove).at(col2 + colMove).value = colour;
-                    return 0;
+            if(board.at(row + rowMove).at(col + colMove).value == antiColour){
+                if(numPieces == 2){
+                    if(board.at(row + rowMove + rowMove).at(col + colMove + colMove).value == 0){
+                        board.at(row + rowMove + rowMove).at(col + colMove + colMove).value = antiColour;
+                        board.at(row - rowMove).at(col - colMove).value = 0;
+                        board.at(row + rowMove).at(col + colMove).value = colour;
+                        return 0;
+                    }
+                    if(board.at(row + rowMove + rowMove).at(col + colMove + colMove).value == 5){
+                        board.at(row - rowMove).at(col - colMove).value = 0;
+                        board.at(row + rowMove).at(col + colMove).value = colour;
+                        return 0;
+                    }
                 }
-                if(board.at(row2 + rowMove + rowMove).at(col2 + colMove + colMove).value == 5){
-                    board.at(row1).at(col1).value = 0;
-                    board.at(row2 + rowMove).at(col2 + colMove).value = colour;
-                    return 0;
+                else if(numPieces == 3){
+                    if(board.at(row + rowMove + rowMove).at(col + colMove + colMove).value == 0){
+                        board.at(row + rowMove + rowMove).at(col + colMove + colMove).value = antiColour;
+                        board.at(row - rowMove - rowMove).at(col - colMove - colMove).value = 0;
+                        board.at(row + rowMove).at(col + colMove).value = colour;
+                        return 0;
+                    }
+                    if(board.at(row + rowMove + rowMove).at(col + colMove + colMove).value == 5){
+                        board.at(row - rowMove - rowMove).at(col - colMove - colMove).value = 0;
+                        board.at(row + rowMove).at(col + colMove).value = colour;
+                        return 0;
+                    }
+                    if(board.at(row + rowMove + rowMove).at(col + colMove + colMove).value == antiColour){
+                       if(board.at(row + rowMove * 3).at(col + colMove * 3).value == 0){
+                            board.at(row + rowMove * 3).at(col + colMove * 3).value = antiColour;
+                            board.at(row - rowMove - rowMove).at(col - colMove - colMove).value = 0;
+                            board.at(row + rowMove).at(col + colMove).value = colour;
+                            return 0;
+                        }
+                        if(board.at(row + rowMove * 3).at(col + colMove * 3).value == 5){
+                            board.at(row - rowMove - rowMove).at(col - colMove - colMove).value = 0;
+                            board.at(row + rowMove).at(col + colMove).value = colour;
+                            return 0;
+                        }
+                    }
                 }
+                
             }
             return 1;
         }
@@ -280,6 +383,13 @@ int main(){
     board.move(2, 3, 4, 3, 3, 5);
     board.move(2, 3, 4, 3, 3, 3);
     board.move(2, 3, 2, 3, 3, 3);
+    board.move(2, 7, 5, 1, 8, 5, 9, 5);
+    board.move(2, 7, 5, 1, 8, 5, 6, 5);
+    board.move(1, 4, 4, 0);
+    board.move(2, 7, 5, 1, 5, 5, 6, 5);
+    board.move(2, 4, 5, 3, 5, 5, 6, 5);
+
+
 
     board.print();
 
