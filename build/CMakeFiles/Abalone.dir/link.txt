@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/Abalone.dir/main.cpp.o -o Abalone  -lsfml-graphics -lsfml-window -lsfml-system -lX11 
+/usr/bin/c++ CMakeFiles/Abalone.dir/main.cpp.o CMakeFiles/Abalone.dir/src/board.cpp.o -o Abalone  -L/usr/lib/x86_64-linux-gnu  -lSDL2 -lSDL2_image -lSDL2 

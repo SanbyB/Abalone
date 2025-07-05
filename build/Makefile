@@ -153,6 +153,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Abalone.dir/build.make CMakeFiles/Abalone.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/board.o: src/board.cpp.o
+.PHONY : src/board.o
+
+# target to build an object file
+src/board.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Abalone.dir/build.make CMakeFiles/Abalone.dir/src/board.cpp.o
+.PHONY : src/board.cpp.o
+
+src/board.i: src/board.cpp.i
+.PHONY : src/board.i
+
+# target to preprocess a source file
+src/board.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Abalone.dir/build.make CMakeFiles/Abalone.dir/src/board.cpp.i
+.PHONY : src/board.cpp.i
+
+src/board.s: src/board.cpp.s
+.PHONY : src/board.s
+
+# target to generate assembly for a file
+src/board.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Abalone.dir/build.make CMakeFiles/Abalone.dir/src/board.cpp.s
+.PHONY : src/board.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +189,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/board.o"
+	@echo "... src/board.i"
+	@echo "... src/board.s"
 .PHONY : help
 
 

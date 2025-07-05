@@ -81,12 +81,12 @@ clean: CMakeFiles/Abalone.dir/clean
 CMakeFiles/Abalone.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Abalone.dir/build.make CMakeFiles/Abalone.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Abalone.dir/build.make CMakeFiles/Abalone.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ben/codingProjects/abalone/build/CMakeFiles --progress-num=1,2 "Built target Abalone"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ben/codingProjects/abalone/build/CMakeFiles --progress-num=1,2,3 "Built target Abalone"
 .PHONY : CMakeFiles/Abalone.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Abalone.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ben/codingProjects/abalone/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ben/codingProjects/abalone/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Abalone.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ben/codingProjects/abalone/build/CMakeFiles 0
 .PHONY : CMakeFiles/Abalone.dir/rule

@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ben/codingProjects/abalone/main.cpp" "CMakeFiles/Abalone.dir/main.cpp.o" "gcc" "CMakeFiles/Abalone.dir/main.cpp.o.d"
+  "/home/ben/codingProjects/abalone/src/board.cpp" "CMakeFiles/Abalone.dir/src/board.cpp.o" "gcc" "CMakeFiles/Abalone.dir/src/board.cpp.o.d"
   )
 
 # Targets to which this target links.
